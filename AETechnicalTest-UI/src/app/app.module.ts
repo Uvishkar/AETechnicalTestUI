@@ -46,10 +46,15 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { VehiclesComponent } from './vehicles/vehicles.component';
+
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { ViewVehicleComponent } from './vehicles/view-vehicle/view-vehicle.component';
 @NgModule({
   declarations: [
     AppComponent,
-    VehiclesComponent
+    VehiclesComponent,
+    ViewVehicleComponent
   ],
   imports: [
     BrowserModule,
@@ -90,7 +95,9 @@ import { VehiclesComponent } from './vehicles/vehicles.component';
     MatTooltipModule,
     MatPaginatorModule,
     MatSortModule,
-    MatTableModule
+    MatTableModule,
+    HttpClientModule,
+    FormsModule
   ],
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA

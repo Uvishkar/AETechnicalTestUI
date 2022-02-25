@@ -1,1 +1,94 @@
-<p>vehicles works!</p>
+<div class="page-header">
+    <div class="container">
+        <h1>Vehicles</h1>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row end-xs mt-1">
+        <div class="col-xs-12">
+            <input type="text" class="searh-input" placeholder="Search vehicles" [(ngModel)]="filterString" (keyup)="filterVehicles()">
+            <a routerLink="/Vehicles/add" mat-raised-button color="primary" class="ml-1">Add New Vehicle</a>
+        </div>
+    </div>
+
+
+    <div class="mt-1 mat-elevation-z8">
+        <table mat-table matSort [dataSource]="dataSource" class="">
+
+            <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+            <!-- Vehicle Type Column -->
+            <ng-container matColumnDef="VehicleType">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Vehicle Type </th>
+                <td mat-cell *matCellDef="let element"> {{element.vehicleType}} </td>
+            </ng-container>
+
+            <!-- Make Column -->
+            <ng-container matColumnDef="Make">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Make </th>
+                <td mat-cell *matCellDef="let element"> {{element.make}} </td>
+            </ng-container>
+
+            <!-- Model Column -->
+            <ng-container matColumnDef="Model">
+                <th mat-header-cell *matHeaderCellDef> Model </th>
+                <td mat-cell *matCellDef="let element"> {{element.model}} </td>
+            </ng-container>
+
+            <!-- Year Column -->
+            <ng-container matColumnDef="Year">
+                <th mat-header-cell *matHeaderCellDef> Year </th>
+                <td mat-cell *matCellDef="let element"> {{element.mear}} </td>
+            </ng-container>
+
+            <!-- WheelCount Column -->
+            <ng-container matColumnDef="WheelCount">
+                <th mat-header-cell *matHeaderCellDef> Wheel Count</th>
+                <td mat-cell *matCellDef="let element"> {{element.wheelCount}} </td>
+            </ng-container>
+
+            <!-- FuelType Column -->
+            <ng-container matColumnDef="FuelType">
+                <th mat-header-cell *matHeaderCellDef> Fuel Type </th>
+                <td mat-cell *matCellDef="let element"> {{element.fuelType}} </td>
+            </ng-container>
+            <!-- Active Column -->
+            <ng-container matColumnDef="Active">
+                <th mat-header-cell *matHeaderCellDef> Gender </th>
+                <td mat-cell *matCellDef="let element"> {{element.active}} </td>
+            </ng-container>
+            <!-- Tax Column -->
+            <ng-container matColumnDef="Tax">
+                <th mat-header-cell *matHeaderCellDef> Tax </th>
+                <td mat-cell *matCellDef="let element"> {{element.tax}} </td>
+            </ng-container>
+            <!-- RoadWorthyTestInterval Column -->
+            <ng-container matColumnDef="RoadWorthyTestInterval">
+                <th mat-header-cell *matHeaderCellDef> RoadWorthy Test Interval </th>
+                <td mat-cell *matCellDef="let element"> {{element.roadWorthyTestInterval}} </td>
+            </ng-container>
+
+
+            <!-- Edit Column -->
+            <ng-container matColumnDef="edit">
+                <th mat-header-cell *matHeaderCellDef> Edit </th>
+                <td mat-cell *matCellDef="let element">
+                    <a [routerLink]="['/vehicles', element.ID]">
+                        <mat-icon color="primary">edit</mat-icon>
+                    </a>
+                </td>
+            </ng-container>
+
+
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page" z->
+        </mat-paginator>
+    </div>
+
+</div>
