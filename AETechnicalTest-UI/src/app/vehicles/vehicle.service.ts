@@ -20,7 +20,7 @@ export class VehicleService {
    return this.httpClient.get<any>(this.baseApiUrl + '/Vehicles')
   }
   getVehicle(ID: string): Observable<Vehicle> {
-    return this.httpClient.get<Vehicle>(this.baseApiUrl + '/Vehicles' + ID)
+    return this.httpClient.get<Vehicle>(this.baseApiUrl + '/Vehicles/' + ID)
   }
 
   updateVehicle(ID: string, vehicleRequest: Vehicle): Observable<Vehicle> {

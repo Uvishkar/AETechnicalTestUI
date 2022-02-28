@@ -22,14 +22,14 @@
                     <div class="col-xs-6">
                         <mat-form-field appearance="outline">
                             <mat-label>Vehicle Type</mat-label>
-                            <input type="text" matInput [(ngModel)]="vehicle.VehicleType" name="firstName" required>
+                            <input type="text" matInput [(ngModel)]="vehicleDisplay.VehicleType" name="VehicleType" required>
                             <mat-error>Vehicle Type is a required field</mat-error>
                         </mat-form-field>
                     </div>
                     <div class="col-xs-6">
                         <mat-form-field appearance="outline">
                             <mat-label>Make</mat-label>
-                            <input type="text" matInput [(ngModel)]="vehicle.Make" name="Make" required>
+                            <input type="text" matInput [(ngModel)]="vehicleDisplay.Make" name="Make" required>
                             <mat-error>Make is a required field</mat-error>
                         </mat-form-field>
                     </div>
@@ -38,7 +38,7 @@
                     <div class="col-xs-12">
                         <mat-form-field appearance="outline">
                             <mat-label>Model</mat-label>
-                            <input type="text" matInput [(ngModel)]="vehicle.Model" name="Model" required>
+                            <input type="text" matInput [(ngModel)]="vehicleDisplay.Model" name="Model" required>
                             <mat-error>Model is a required field</mat-error>
                         </mat-form-field>
                     </div>
@@ -47,14 +47,14 @@
                     <div class="col-xs-6">
                         <mat-form-field appearance="outline">
                             <mat-label>Year</mat-label>
-                            <input type="number" matInput [(ngModel)]="vehicle.Year" name="Year" required>
+                            <input type="number" matInput [(ngModel)]="vehicleDisplay.Year" name="Year" required>
                             <mat-error>Year is a required field</mat-error>
                         </mat-form-field>
                     </div>
                     <div class="col-xs-6">
                         <mat-form-field appearance="outline">
                             <mat-label>Wheel Count</mat-label>
-                            <input type="number" matInput [(ngModel)]="vehicle.WheelCount" name="WheelCount" required>
+                            <input type="number" matInput [(ngModel)]="vehicleDisplay.WheelCount" name="WheelCount" required>
                             <mat-error>Wheel Count is a required field</mat-error>
                         </mat-form-field>
                     </div>
@@ -63,7 +63,7 @@
                     <div class="col-xs-12">
                         <mat-form-field appearance="outline">
                             <mat-label>Fuel Type</mat-label>
-                            <input type="text" matInput [(ngModel)]="vehicle.FuelType" name="FuelType" required>
+                            <input type="text" matInput [(ngModel)]="vehicleDisplay.FuelType" name="FuelType" required>
                             <mat-error>Fuel Type is a required field</mat-error>
                         </mat-form-field>
                     </div>
@@ -72,7 +72,7 @@
                     <div class="col-xs-12">
                         <mat-form-field appearance="outline">
                             <mat-label>Active</mat-label>
-                            <input type="text" matInput [(ngModel)]="vehicle.Active" name="Active" required>
+                            <input type="text" matInput [(ngModel)]="vehicleDisplay.Active" name="Active" required>
                             <mat-error>Active is a required field</mat-error>
                         </mat-form-field>
                     </div>
@@ -90,7 +90,7 @@
                 </div>
             </form>
         </div>
-        <div class="col-xs-6">
+        <!-- <div class="col-xs-6">
             <div class="row center-xs">
                 <div class="image-container">
                     <img [src]="displayProfileImageUrl" alt="Profile Image">
@@ -100,6 +100,6 @@
                 <div class="col-xs-12 row center-xs mt-1" *ngIf="!isNewVehicle">
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>

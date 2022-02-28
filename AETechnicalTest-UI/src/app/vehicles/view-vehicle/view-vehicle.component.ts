@@ -12,7 +12,7 @@ import { VehicleService } from '../vehicle.service';
 export class ViewVehicleComponent implements OnInit {
 
   ID: string | null | undefined;
-  vehicle: Vehicle = {
+  vehicleDisplay: Vehicle = {
     ID:'',
     VehicleType:'',
     Make:'',
@@ -27,7 +27,7 @@ export class ViewVehicleComponent implements OnInit {
 
   isNewVehicle = false;
   header = '';
-  displayProfileImageUrl = '';
+
 
 
   @ViewChild('vehicleDetailsForm') vehicleDetailsForm?: NgForm;
@@ -44,7 +44,7 @@ export class ViewVehicleComponent implements OnInit {
         this.ID = params.get('id');
 
         if (this.ID) {
-          if (this.ID.toLowerCase() === 'Add'.toLowerCase()) {
+          if (this.ID === 'Add'.toLowerCase()) {
             // -> new Vehicle Functionality
             this.isNewVehicle = true;
             this.header = 'Add New Vehicle';
@@ -55,8 +55,8 @@ export class ViewVehicleComponent implements OnInit {
             this.header = 'Edit Vehicle';
             this.vehicleService.getVehicle(this.ID)
               .subscribe(
-                (successResponse) => {
-                  this.vehicle = successResponse;
+                (successResponse): void => {
+                  this.vehicleDisplay = successResponse;
                 },
                 (errorResponse) => {
                   console.log(errorResponse);
@@ -71,7 +71,7 @@ export class ViewVehicleComponent implements OnInit {
 
   onUpdate(): void {
     if (this.vehicleDetailsForm?.form.valid) {
-      this.vehicleService.updateVehicle(this.vehicle.ID, this.vehicle)
+      this.vehicleService. updateVehicle(this.vehicleDisplay.ID, this.vehicleDisplay)
         .subscribe(
           (successResponse) => {
             // Show a notification
@@ -88,7 +88,7 @@ export class ViewVehicleComponent implements OnInit {
   }
 
   onDelete(): void {
-    this.vehicleService.deleteVehicle(this.vehicle.ID)
+    this.vehicleService.deleteVehicle(this.vehicleDisplay.ID)
       .subscribe(
         (successResponse) => {
           this.snackbar.open('Vehicles deleted successfully', undefined, {
@@ -108,7 +108,7 @@ export class ViewVehicleComponent implements OnInit {
   onAdd(): void {
     if (this.vehicleDetailsForm?.form.valid) {
       // Submit form date to api
-      this.vehicleService.addVehicle(this.vehicle)
+      this.vehicleService.addVehicle(this.vehicleDisplay)
         .subscribe(
           (successResponse) => {
             this.snackbar.open('Vehicles added successfully', undefined, {

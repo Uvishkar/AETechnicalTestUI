@@ -8,7 +8,7 @@
     <div class="row end-xs mt-1">
         <div class="col-xs-12">
             <input type="text" class="searh-input" placeholder="Search vehicles" [(ngModel)]="filterString" (keyup)="filterVehicles()">
-            <a routerLink="/Vehicles/add" mat-raised-button color="primary" class="ml-1">Add New Vehicle</a>
+
         </div>
     </div>
 
@@ -72,10 +72,10 @@
 
 
             <!-- Edit Column -->
-            <ng-container matColumnDef="edit">
+            <ng-container matColumnDef="Edit">
                 <th mat-header-cell *matHeaderCellDef> Edit </th>
                 <td mat-cell *matCellDef="let element">
-                    <a [routerLink]="['/vehicles', element.ID]">
+                    <a [routerLink]="['/vehicles', element.id]">
                         <mat-icon color="primary">edit</mat-icon>
                     </a>
                 </td>

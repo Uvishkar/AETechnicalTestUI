@@ -40,7 +40,7 @@ import { VehicleService } from './vehicle.service';
 })
 export class VehiclesComponent implements OnInit {
   Vehicles: Vehicle[] = [];
-  displayedColumns: string[] = ['VehicleType', 'Make', 'Model', 'Year', 'WheelCount', 'Active', 'Tax','RoadWorthyTestInterval'];
+  displayedColumns: string[] = ['VehicleType', 'Make', 'Model', 'Year', 'WheelCount', 'Active', 'Tax','RoadWorthyTestInterval','Edit'];
   dataSource: MatTableDataSource<Vehicle> = new MatTableDataSource<Vehicle>();
   @ViewChild(MatPaginator) matPaginator!: MatPaginator;
   @ViewChild(MatSort) matSort!: MatSort;
